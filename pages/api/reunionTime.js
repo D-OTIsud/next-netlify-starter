@@ -13,6 +13,6 @@ export default function handler(req, res) {
     const reunionTime = new Date().toLocaleString('fr-FR', options);
     const formattedTime = reunionTime.replace(/:\d{2}\s/, 'h');
 
-    res.setHeader('Content-Type', 'text/plain');
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
     res.status(200).send(formattedTime);
 }
