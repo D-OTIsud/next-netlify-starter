@@ -12,5 +12,7 @@ export default function handler(req, res) {
     };
 
     const reunionTime = new Date().toLocaleString('fr-FR', options);
-    res.status(200).json({ dateTime: reunionTime });
+    const formattedTime = reunionTime.replace(/:\d{2}\s/, 'h'); // Replace ':mm ' with 'h'
+
+    res.status(200).json({ dateTime: formattedTime });
 }
