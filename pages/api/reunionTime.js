@@ -7,12 +7,12 @@ export default function handler(req, res) {
         day: 'numeric',
         hour: '2-digit',
         minute: '2-digit',
-        second: '2-digit',
         hour12: false
     };
 
     const reunionTime = new Date().toLocaleString('fr-FR', options);
-    const formattedTime = reunionTime.replace(/:\d{2}\s/, 'h'); // Replace ':mm ' with 'h'
+    const formattedTime = reunionTime.replace(/:\d{2}\s/, 'h');
 
-    res.status(200).json({ dateTime: formattedTime });
+    res.setHeader('Content-Type', 'text/plain');
+    res.status(200).send(formattedTime);
 }
